@@ -26,7 +26,7 @@ class SiamRPNTracker():
         #初始化为eval()，不计算梯度
         self.model.eval()
         #定义转换，仅仅转为Tensor张量
-        self.transforms = transforms.Compose([transforms.ToTensor()])
+        self.transforms = transforms.Compose([transforms.ToTensor(),transforms.Normalize(mean=(0.485, 0.456, 0.406),std=(0.229, 0.224, 0.225))])
         #这里生成的anchor与训练一样  (1805,4)
         self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
                                         config.anchor_ratios,
