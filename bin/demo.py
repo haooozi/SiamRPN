@@ -17,6 +17,6 @@ if __name__=='__main__':
     anno = np.loadtxt(seq_dir + 'groundtruth_rect.txt',
                       delimiter=',')  # anno[0]=array([205.,151.,17.,50.])就是第一帧中的groundtruth,依此类推
 
-    net_path = 'pretrained/siamrpn_2.pth'
+    net_path = 'your_model_path'
     tracker = SiamRPNTracker(net_path)
     tracker.track(img_files, anno[0], visualize=True)
